@@ -1,0 +1,15 @@
+// Write your WebSockets server code and deploy it to the cloud for free!
+
+import { WebSocketServer } from 'ws'
+
+const wss = new WebSocketServer()
+
+wss.on('connection', ws => {
+  ws.on('error', console.error)
+
+  ws.on('message', data => {
+    console.log('received', data)
+  })
+
+  ws.send('HeLLo')
+})
