@@ -5,7 +5,7 @@ import DeployedServerDashboard from '../components/DeployedServerDashboard'
 import WriteCodeDashboard from '../components/WriteCodeDashboard'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { API, CODE_SAMPLE } from '../utils/constants'
+import { REAL_API, FAKE_API, CODE_SAMPLE } from '../utils/constants'
 
 export default function Home() {
   const [code, setCode] = useState('loading...')
@@ -14,9 +14,21 @@ export default function Home() {
 
   const handleClick = async () => {
     setIsLoading(true)
-    const response = await fetch(API)
-    const data = await response.json();
-    setUrl(data.url)
+    const body = JSON.stringify({
+      username: 'brian',
+      project: "tinderbook",
+      code,
+    })
+    const response = await fetch(REAL_API, {
+      method: 'POST',
+      body,
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+    const data = await response.json()
+
+    setUrl(data.uri)
     setIsLoading(false)
   }
 
