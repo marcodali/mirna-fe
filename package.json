@@ -2,8 +2,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start"
+    "build": "rm -rf out && next build && next export",
+    "start": "next start",
+    "clean-bucket": "aws s3 rm s3://www.mirna.cloud/ --recursive",
+    "upload-to-bucket": "aws s3 sync out s3://www.mirna.cloud",
+    "invalidate-cloudfront": "aws cloudfront create-invalidation --distribution-id E17IME4UVRTFZV --paths \"/*\"",
+    "deploy": "yarn clean-bucket && yarn upload-to-bucket && yarn invalidate-cloudfront"
   },
   "dependencies": {
     "next": "latest",
