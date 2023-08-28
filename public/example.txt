@@ -1,4 +1,4 @@
-// Write your WebSockets server code and deploy it to the cloud for free!
+// Write your WebSocketServer (wss) code and deploy it to the cloud for free!
 
 wss.on('connection', (ws) => {
   ws.on('error', console.error)
