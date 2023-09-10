@@ -4,8 +4,8 @@ wss.on('connection', (ws) => {
   ws.on('error', console.error)
 
   ws.on('message', (data) => {
-    console.log('soy zamas y voy a cumplir tu deseo:', data.toString())
+    console.log(`soy zamas y tu deseo ${data.toString()} lo voy a cumplir`)
   })
 
-  ws.send('hOLa soy el servidor Zamas wElCoMe!')
+  ws.send("hOLa soy el servidor Zamas wElCoMe!")
 })
