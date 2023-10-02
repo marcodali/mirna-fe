@@ -5,7 +5,7 @@ export default function DeployedServerDashboard({ url }) {
     return (
         <>
             <ServerUrl url={url} />
-            <TableEvents />
+            <TableEvents url={url + '/events'} />
         </>
     )
 }

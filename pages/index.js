@@ -48,17 +48,17 @@ export default function Home() {
     }
     loadExampleCode()
     loadUsernameProject()
-  }, [])
+  }, [])  // Execute only once
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Sockets Miracle</title>
+        <title>Mirna Sockets</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Header />
+        <Header url={url} isLoading={isLoading} />
 
         {
           url && !isLoading && <DeployedServerDashboard url={url} />

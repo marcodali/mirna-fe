@@ -1,14 +1,15 @@
-export default function Header() {
+export default function Header({ url, isLoading }) {
     return (
         <>
             <h1 className="title">
                 Welcome to <a href="/">Mirna Cloud!</a>
             </h1>
 
-            <p>
+            {
+                !url && !isLoading && <p>
                 Forget about cloud infrastructure.
                 Focus only on your sockets business logic
-            </p>
+            </p>}
 
             <style jsx>{`
                 .title a {

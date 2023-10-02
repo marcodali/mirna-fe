@@ -1,28 +1,49 @@
-export default function TableEvents() {
+import { useRef, useEffect, useState } from "react"
+
+export default function TableEvents({ url }) {
+    const ws = useRef(null)
+    const [tablaData, setTablaData] = useState([])
+
+    useEffect(() => {
+
+        // Se establece la conexión con el servidor de WebSocket
+        ws.current = new WebSocket(url)
+    
+        // Manejador de eventos para cuando se abre la conexión
+        ws.current.onopen = () => console.log('Conexión abierta')
+    
+        // Error handler
+        ws.current.onerror = (error) => console.error(error)
+    
+        // Manejador de eventos para cuando se cierra la conexión
+        ws.current.onclose = () => console.log('Conexión cerrada')
+    
+        // New messages from server handler
+        ws.current.onmessage = (event) => setTablaData(
+            (oldData) => [...oldData, event.data]
+        )
+    
+        const wsCurrent = ws.current
+    
+        // Limpieza al desmontar el componente
+        return () => wsCurrent.close()
+    
+      }, []) // Execute only once
+    
     return (
         <table>
             <thead>
                 <tr>
-                <th>Month</th>
-                <th>Savings</th>
+                    <th>Server Log Messages</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td>January</td>
-                <td>$100</td>
+                {tablaData.map((message, index) => (
+                <tr key={index}>
+                    <td>{message}</td>
                 </tr>
-                <tr>
-                <td>February</td>
-                <td>$80</td>
-                </tr>
+                ))}
             </tbody>
-            <tfoot>
-                <tr>
-                <td>Sum</td>
-                <td>$180</td>
-                </tr>
-            </tfoot>
         </table>
     )
 }
