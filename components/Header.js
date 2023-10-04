@@ -1,3 +1,5 @@
+import DocumentationExample from './DocumentationExample'
+
 export default function Header({ url, isLoading }) {
     return (
         <>
@@ -6,10 +8,8 @@ export default function Header({ url, isLoading }) {
             </h1>
 
             {
-                !url && !isLoading && <p>
-                Forget about cloud infrastructure.
-                Focus only on your sockets business logic
-            </p>}
+                !url && !isLoading && <DocumentationExample />
+            }
 
             <style jsx>{`
                 .title a {
