@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import DeployedServerDashboard from '../components/DeployedServerDashboard'
 import WriteCodeDashboard from '../components/WriteCodeDashboard'
+import DocumentationExample from '../components/DocumentationExample'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { REAL_API, RANDOM_USER_API, CODE_SAMPLE } from '../utils/constants'
@@ -74,6 +75,10 @@ export default function Home() {
               code={code}
               setCode={setCode}
               handleClick={handleClick} />
+        }
+
+        {
+          !url && !isLoading && <DocumentationExample />
         }
 
       </main>

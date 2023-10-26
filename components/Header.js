@@ -1,15 +1,9 @@
-import DocumentationExample from './DocumentationExample'
-
 export default function Header({ url, isLoading }) {
     return (
         <>
             <h1 className="title">
                 Welcome to <a href="/">Mirna Cloud!</a>
             </h1>
-
-            {
-                !url && !isLoading && <DocumentationExample />
-            }
 
             <style jsx>{`
                 .title a {
