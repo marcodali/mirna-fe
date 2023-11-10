@@ -8,7 +8,7 @@ export default function DocumentationExample() {
                 Focus only on your sockets business logic
             </p>
             <p>
-                Sample Project: 
+                Sample Project:
                 &nbsp;
                 <a href={SERVER_PROJECT_EXAMPLE} target="_blank">
                     backend

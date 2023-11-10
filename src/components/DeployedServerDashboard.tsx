@@ -1,7 +1,11 @@
 import ServerUrl from "./ServerUrl"
 import TableEvents from "./TableEvents"
 
-export default function DeployedServerDashboard({ url }) {
+interface DeployedServerDashboardProps {
+  url: string
+}
+
+export default function DeployedServerDashboard({ url }: DeployedServerDashboardProps) {
     return (
         <>
             <ServerUrl url={url} />
