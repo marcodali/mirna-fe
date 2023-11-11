@@ -10,7 +10,7 @@ export default function DocumentationExample() {
             <p>
                 Sample Project:
                 &nbsp;
-                <a href={SERVER_PROJECT_EXAMPLE} target="_blank">
+                <a href={SERVER_PROJECT_EXAMPLE} target="_blank" className="text-blue-600 no-underline hover:underline focus:underline active:underline">
                     backend
                 </a>
                 &nbsp;
@@ -18,7 +18,7 @@ export default function DocumentationExample() {
                     frontend
                 </a>
                 &nbsp;
-                <a href={LIVE_DEMO_PROJECT_EXAMPLE} target="_blank">
+                <a href={LIVE_DEMO_PROJECT_EXAMPLE} target="_blank" className="text-blue-600 no-underline hover:underline focus:underline active:underline">
                     live-demo
                 </a>
             </p>

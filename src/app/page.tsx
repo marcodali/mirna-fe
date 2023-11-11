@@ -1,6 +1,5 @@
 'use client'
 
-import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import DeployedServerDashboard from '../components/DeployedServerDashboard'
@@ -55,10 +54,6 @@ export default function Home() {
 
 	return (
 		<div className="min-h-[1vh] p-[0.1rem] flex flex-col justify-center items-center">
-			<Head>
-				<title>Mirna Sockets</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
 
 			<main className="p-20 flex-1 flex flex-col justify-center items-center">
 				<Header />
@@ -68,7 +63,7 @@ export default function Home() {
 				}
 
 				{
-					isLoading && <Image width={200} height={200} src="/loading.gif" alt="Cargando..." layout="responsive" />
+					isLoading && <Image width={150} height={150} src="/loading.gif" alt="Cargando..." />
 				}
 
 				{

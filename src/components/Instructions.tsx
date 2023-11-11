@@ -3,7 +3,7 @@ export default function Instructions() {
         <div>
             <h5>Some Tips:</h5>
             <ul>
-                <li>Socket.io doesn&apos;t work here =&gt; We use the <a href="https://www.npmjs.com/package/ws" target="_blank">ws</a> library</li>
+                <li>Socket.io doesn&apos;t work here =&gt; We use the <a href="https://www.npmjs.com/package/ws" target="_blank" className="text-blue-600 no-underline hover:underline focus:underline active:underline">ws</a> library</li>
                 <li>Do not open or listen to any ports =&gt; Follow the example projects</li>
                 <li>Do not use require() =&gt; Use ES6 syntax (import from)</li>
                 <li>List of npm packages that you can use/import =&gt; axios, moment, lodash, jsonwebtoken and uuid</li>
