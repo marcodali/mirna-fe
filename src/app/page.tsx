@@ -2,11 +2,11 @@
 
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import DeployedServerDashboard from '../components/DeployedServerDashboard'
-import WriteCodeDashboard from '../components/WriteCodeDashboard'
-import DocumentationExample from '../components/DocumentationExample'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import DeployedServerDashboard from '@/components/DeployedServerDashboard'
+import WriteCodeDashboard from '@/components/WriteCodeDashboard'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import StickyLabel from '@/components/StickyLabel'
 import { REAL_API, RANDOM_USER_API, CODE_SAMPLE } from '../utils/constants'
 
 export default function Home() {
@@ -55,28 +55,17 @@ export default function Home() {
 	return (
 		<div className="min-h-[1vh] p-[0.1rem] flex flex-col justify-center items-center">
 
-			<main className="p-20 flex-1 flex flex-col justify-center items-center">
+			<main className="p-20 pb-5 flex-1 flex flex-col justify-center items-center">
+
 				<Header />
 
-				{
-					url && !isLoading && <DeployedServerDashboard url={url} />
-				}
+				<StickyLabel />
 
-				{
-					isLoading && <Image width={150} height={150} src="/loading.gif" alt="Cargando..." />
-				}
+				{!isLoading && url && <DeployedServerDashboard url={url} />}
 
-				{
-					!url && !isLoading &&
-					<WriteCodeDashboard
-						code={code}
-						setCode={setCode}
-						handleClick={handleClick} />
-				}
+				{isLoading && <Image width={200} height={200} src="/loading.gif" alt="Cargando..." />}
 
-				{
-					!url && !isLoading && <DocumentationExample />
-				}
+				{!isLoading && !url && <WriteCodeDashboard code={code} setCode={setCode} handleClick={handleClick} />}
 
 			</main>
 

@@ -44,7 +44,7 @@ export default function TableEvents({ url }: TableEventsProps) {
                 webSocketRef.current.close()
             }
         }
-    }, []) // Se ejecuta solo una vez
+    }, [url]) // Se ejecuta cada que la url es actualizada.
 
     return (
         <table>
