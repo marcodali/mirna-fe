@@ -1,18 +1,72 @@
-export default function Instructions() {
+import { useState } from 'react'
+
+const Instructions = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <div>
-            <h5>Some Tips:</h5>
-            <ul>
-                <li>Socket.io doesn&apos;t work here =&gt; We use the <a href="https://www.npmjs.com/package/ws" target="_blank" className="text-blue-600 no-underline hover:underline focus:underline active:underline">ws</a> library</li>
-                <li>Do not open or listen to any ports =&gt; Follow the example projects</li>
-                <li>Do not use require() =&gt; Use ES6 syntax (import from)</li>
-                <li>List of npm packages that you can use/import =&gt; axios, moment, lodash, jsonwebtoken and uuid</li>
-                <li>No typescript =&gt; We prefer vanilla JavaScript</li>
-                <li>You don&apos;t worry about CORS =&gt; It&apos;s explicitly enabled by default for * origins</li>
-                <li>Don&apos;t use var =&gt; We code only with let and const</li>
-                <li>If your code does not compile =&gt; We&apos;ll let you know but the WSS url won&apos;t work</li>
-                <li>If your code rises an exception you MUST catch it, if not =&gt; your code will be deleted and the WSS url previously generated will be deactivated</li>
-            </ul>
+        <div className="p-4 bg-yellow-100 border border-yellow-300 rounded-lg shadow-md">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-lg font-semibold underline"
+            >
+                Some Tips
+            </button>
+            {isOpen && (
+                <ul className="mt-2 text-sm list-disc pl-5 space-y-1">
+                    <li>Socket.io doesn&apos;t work here
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; We use the <a href="https://www.npmjs.com/package/ws" target="_blank" className="text-blue-600 no-underline hover:underline focus:underline active:underline">ws</a> library</li>
+                        </ul>
+                    </li>
+                    <li>Do not open or listen to any ports
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; Follow the example projects</li>
+                        </ul>
+                    </li>
+                    <li>Do not use require()
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; Use ES6 syntax (import from)</li>
+                        </ul>
+                    </li>
+                    <li>npm packages that you can use:
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; axios</li>
+                            <li>&rarr; moment</li>
+                            <li>&rarr; lodash</li>
+                            <li>&rarr; jsonwebtoken</li>
+                            <li>&rarr; uuid</li>
+                        </ul>
+                    </li>
+                    <li>No typescript
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; We prefer vanilla JavaScript</li>
+                        </ul>
+                    </li>
+                    <li>You don&apos;t worry about CORS
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; We have set * for all origins</li>
+                        </ul>
+                    </li>
+                    <li>Don&apos;t use var
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; We code only with let and const</li>
+                        </ul>
+                    </li>
+                    <li>If your code does not compile
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; The WSS url that we give won&apos;t work</li>
+                        </ul>
+                    </li>
+                    <li>If your code rises an exception:
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; you MUST catch it, if not</li>
+                            <li>&rarr; your code will be deleted and</li>
+                            <li>&rarr; the WSS url will be deactivated</li>
+                        </ul></li>
+                </ul>
+            )}
         </div>
-    )
-}
+    );
+};
+
+export default Instructions;
