@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-const Instructions = () => {
-    const [isOpen, setIsOpen] = useState(false);
+export default function Instructions() {
+    const [isOpen, setIsOpen] = useState(false)
 
     return (
         <div className="p-4 bg-yellow-100 border border-yellow-300 rounded-lg shadow-md">
@@ -28,45 +28,39 @@ const Instructions = () => {
                             <li>&rarr; Use ES6 syntax (import from)</li>
                         </ul>
                     </li>
-                    <li>npm packages that you can use:
+                    <li>npm packages that you can use
                         <ul className="pl-5 mt-2">
-                            <li>&rarr; axios</li>
-                            <li>&rarr; moment</li>
-                            <li>&rarr; lodash</li>
+                            <li>&rarr; axios, moment, lodash</li>
                             <li>&rarr; jsonwebtoken</li>
                             <li>&rarr; uuid</li>
                         </ul>
                     </li>
-                    <li>No typescript
+                    <li>No Typescript
                         <ul className="pl-5 mt-2">
                             <li>&rarr; We prefer vanilla JavaScript</li>
                         </ul>
                     </li>
-                    <li>You don&apos;t worry about CORS
+                    <li>Don&apos;t worry about CORS
                         <ul className="pl-5 mt-2">
                             <li>&rarr; We have set * for all origins</li>
                         </ul>
                     </li>
                     <li>Don&apos;t use var
                         <ul className="pl-5 mt-2">
-                            <li>&rarr; We code only with let and const</li>
+                            <li>&rarr; We prefer let and const</li>
                         </ul>
                     </li>
                     <li>If your code does not compile
                         <ul className="pl-5 mt-2">
-                            <li>&rarr; The WSS url that we give won&apos;t work</li>
+                        <li>&rarr; The WSS url will be deactivated</li>
                         </ul>
                     </li>
-                    <li>If your code rises an exception:
+                    <li>If your code rises an exception
                         <ul className="pl-5 mt-2">
-                            <li>&rarr; you MUST catch it, if not</li>
-                            <li>&rarr; your code will be deleted and</li>
-                            <li>&rarr; the WSS url will be deactivated</li>
+                            <li>&rarr; The WSS url will be deactivated</li>
                         </ul></li>
                 </ul>
             )}
         </div>
-    );
-};
-
-export default Instructions;
+    )
+}

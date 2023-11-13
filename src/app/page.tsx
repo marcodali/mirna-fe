@@ -55,15 +55,15 @@ export default function Home() {
 	return (
 		<div className="min-h-[1vh] p-[0.1rem] flex flex-col justify-center items-center">
 
-			<main className="p-20 pb-5 flex-1 flex flex-col justify-center items-center">
+			<main className="p-10 pb-5 flex-1 flex flex-col justify-center items-center">
 
-				<Header />
+				<Header url={url} />
 
 				<StickyLabel />
 
 				{!isLoading && url && <DeployedServerDashboard url={url} />}
 
-				{isLoading && <Image width={200} height={200} src="/loading.gif" alt="Cargando..." />}
+				{isLoading && <Image width={350} height={350} src="/loading.gif" alt="Cargando..." />}
 
 				{!isLoading && !url && <WriteCodeDashboard code={code} setCode={setCode} handleClick={handleClick} />}
 

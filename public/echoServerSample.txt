@@ -1,0 +1,21 @@
+// Get your WebSocket Server running in the cloud for free – code, deploy, connect!
+
+wss.on('connection', (ws) => {
+    console.log('New client connected.')
+
+    ws.on('error', (error) => {
+        console.error('WebSocket error observed: ', error)
+    })
+
+    ws.on('close', () => {
+        console.log('Client has disconnected.')
+    });
+
+    ws.on('message', (message) => {
+        console.log(`Received message: ${message}`)
+        ws.send(`Echoing back your message: ${message}`)
+    });
+
+    ws.send('Welcome to the Echo WebSocket server!')
+})
+

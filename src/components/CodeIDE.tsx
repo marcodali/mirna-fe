@@ -1,4 +1,10 @@
 import React from 'react'
+import AceEditor from 'react-ace'
+
+import 'ace-builds/src-noconflict/mode-javascript'
+import 'ace-builds/src-noconflict/theme-monokai'
+import 'ace-builds/src-noconflict/ace'
+import 'ace-builds/src-noconflict/ext-language_tools'
 
 interface CodeIDEProps {
     code: string
@@ -7,13 +13,22 @@ interface CodeIDEProps {
 
 export default function CodeIDE({ code, setCode }: CodeIDEProps) {
     return (
-        <textarea
-            rows={34}
-            cols={90}
+        <AceEditor
+            mode="javascript"
+            theme="monokai"
+            name="MAGIC_NUMBER_01"
+            fontSize={14}
+            width="755px"
+            height="500px"
+            highlightActiveLine={true}
             value={code}
-            onChange={(e) => setCode(e.target.value)}
-            className="form-textarea mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            style={{ fontFamily: 'monospace', backgroundColor: '#282c34', color: '#abb2bf' }}
+            onChange={newCode => setCode(newCode)}
+            editorProps={{ $blockScrolling: true }}
+            setOptions={{
+                enableBasicAutocompletion: false,
+                enableLiveAutocompletion: true,
+                enableSnippets: false,
+              }}
         />
-    )
+    );
 }

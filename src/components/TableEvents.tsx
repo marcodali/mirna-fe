@@ -47,19 +47,21 @@ export default function TableEvents({ url }: TableEventsProps) {
     }, [url]) // Se ejecuta cada que la url es actualizada.
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Server Log Messages</th>
-                </tr>
-            </thead>
-            <tbody>
-                {tablaData.map((message, index) => (
-                    <tr key={index}>
-                        <td>{message}</td>
+        <div className="w-full self-start flex-shrink-0 mt-10">
+            <table className="min-h-[60vh] w-full">
+                <thead>
+                    <tr>
+                        <th className="text-left">Server Log Messages</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody className="align-top">
+                    {tablaData.map((message, index) => (
+                        <tr key={index}>
+                            <td className="text-left align-top">{message}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     )
 }

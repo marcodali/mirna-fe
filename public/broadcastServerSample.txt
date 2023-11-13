@@ -1,0 +1,22 @@
+// Get your WebSocket Server running in the cloud for free – code, deploy, connect!
+
+wss.on('connection', (ws) => {
+    ws.on('error', (error) => {
+        console.error('Error on the WebSocket connection:', error)
+    })
+
+    ws.on('close', () => {
+        console.log('Client has disconnected.')
+    })
+
+    ws.on('message', (message) => {
+        console.log(`Broadcasting message: ${message}`)
+        wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(message)
+            }
+        })
+    })
+
+    ws.send('You are now connected to the server. Send a message to broadcast.')
+})

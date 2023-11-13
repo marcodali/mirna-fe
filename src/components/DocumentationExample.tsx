@@ -1,3 +1,4 @@
+import React from 'react'
 import { SERVER_PROJECT_EXAMPLE, CLIENT_PROJECT_EXAMPLE, LIVE_DEMO_PROJECT_EXAMPLE } from '../utils/constants'
 
 export default function DocumentationExample() {

@@ -13,13 +13,14 @@ export default function WriteCodeDashboard({ code, setCode, handleClick }: Write
     return (
         <>
             <div className="flex flex-row justify-between space-x-4 mt-4">
-                <div className="flex-3">
+                <div className="flex-grow flex-basis-0">
                     <CodeIDE code={code} setCode={setCode} />
                 </div>
-                <div className="flex-1">
+                <div className="flex-grow-0 flex-basis-1/4">
                     <Instructions />
                 </div>
             </div>
+
             <DeployButton code={code} handleClick={handleClick} />
         </>
     )

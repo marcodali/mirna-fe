@@ -1,6 +1,11 @@
+import React from "react"
 import DocumentationExample from "./DocumentationExample"
 
-export default function Header() {
+type HeaderProps = {
+    url: string
+}
+
+export default function Header({ url }: HeaderProps) {
     return (
         <>
             <h1 className="m-0 text-center text-7xl leading-none mb-4">
@@ -9,7 +14,7 @@ export default function Header() {
                     Mirna Cloud!
                 </a>
             </h1>
-            <DocumentationExample />
+            {!url && <DocumentationExample />}
         </>
     )
 }
