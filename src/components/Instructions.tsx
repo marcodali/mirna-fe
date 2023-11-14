@@ -31,8 +31,7 @@ export default function Instructions() {
                     <li>npm packages that you can use
                         <ul className="pl-5 mt-2">
                             <li>&rarr; axios, moment, lodash</li>
-                            <li>&rarr; jsonwebtoken</li>
-                            <li>&rarr; uuid</li>
+                            <li>&rarr; jsonwebtoken, uuid</li>
                         </ul>
                     </li>
                     <li>No Typescript

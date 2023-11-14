@@ -1,5 +1,4 @@
-import ServerUrl from "./ServerUrl"
-import TableEvents from "./TableEvents"
+import { ServerUrl, TableEvents } from "."
 
 interface DeployedServerDashboardProps {
   url: string

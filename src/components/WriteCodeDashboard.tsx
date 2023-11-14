@@ -1,7 +1,4 @@
-import React from "react"
-import CodeIDE from "./CodeIDE"
-import DeployButton from "./DeployButton"
-import Instructions from "./Instructions"
+import { CodeIDE, Instructions, DeployButton } from "."
 
 interface WriteCodeDashboardProps {
     code: string

@@ -38,7 +38,7 @@ export default function ServerUrl({ url }: ServerUrlProps) {
                 name="urlInput"
                 defaultValue={url}
                 className="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 shadow-sm text-sm h-8 w-3/4"
-                style={{ maxWidth: '350px' }}
+                style={{ maxWidth: '400px' }}
             />
             <button
                 type="button"

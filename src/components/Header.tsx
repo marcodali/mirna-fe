@@ -2,10 +2,10 @@ import React from "react"
 import DocumentationExample from "./DocumentationExample"
 
 type HeaderProps = {
-    url: string
+    showSampleProject: boolean
 }
 
-export default function Header({ url }: HeaderProps) {
+export default function Header({ showSampleProject }: HeaderProps) {
     return (
         <>
             <h1 className="m-0 text-center text-7xl leading-none mb-4">
@@ -14,7 +14,7 @@ export default function Header({ url }: HeaderProps) {
                     Mirna Cloud!
                 </a>
             </h1>
-            {!url && <DocumentationExample />}
+            {showSampleProject ? <DocumentationExample /> : null}
         </>
     )
 }

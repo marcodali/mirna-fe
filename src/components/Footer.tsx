@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { DURAZNO_WEBSITE, DURAZNO_NAME } from "../utils/constants"
+import { DURAZNO_WEBSITE, DURAZNO_NAME } from '@/utils/constants'
 
 export default function Footer() {
     return (

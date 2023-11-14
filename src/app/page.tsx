@@ -2,17 +2,14 @@
 
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import DeployedServerDashboard from '@/components/DeployedServerDashboard'
-import WriteCodeDashboard from '@/components/WriteCodeDashboard'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import StickyLabel from '@/components/StickyLabel'
-import { REAL_API, RANDOM_USER_API, CODE_SAMPLE } from '../utils/constants'
+import { useRouter } from 'next/navigation'
+import { WriteCodeDashboard, Header, Footer, StickyLabel } from '@/components'
+import { REAL_API, RANDOM_USER_API, CODE_SAMPLE } from '@/utils/constants'
 
 export default function Home() {
+	const router = useRouter()
 	const [code, setCode] = useState('loading...')
 	const [isLoading, setIsLoading] = useState(false)
-	const [url, setUrl] = useState('')
 	const [username, setUsername] = useState('')
 	const [project, setProject] = useState('')
 
@@ -27,13 +24,12 @@ export default function Home() {
 			method: 'POST',
 			body,
 			headers: {
-				"Content-Type": "application/json",
-			}
+				'Content-Type': 'application/json',
+			},
 		})
 		const data = await response.json()
-
-		setUrl(data.uri)
-		setIsLoading(false)
+		const [, , , u, p] = data.uri.split('/')
+		router.push(`/dashboard?username=${u}&project=${p}`)  // Navigate to the new page
 	}
 
 	useEffect(() => {
@@ -54,23 +50,29 @@ export default function Home() {
 
 	return (
 		<div className="min-h-[1vh] p-[0.1rem] flex flex-col justify-center items-center">
-
 			<main className="p-10 pb-5 flex-1 flex flex-col justify-center items-center">
 
-				<Header url={url} />
-
 				<StickyLabel />
-
-				{!isLoading && url && <DeployedServerDashboard url={url} />}
-
-				{isLoading && <Image width={350} height={350} src="/loading.gif" alt="Cargando..." />}
-
-				{!isLoading && !url && <WriteCodeDashboard code={code} setCode={setCode} handleClick={handleClick} />}
+				<Header showSampleProject={true} />
+				{
+					isLoading ? (
+						<Image
+							width={500}
+							height={500}
+							src="/loading.gif"
+							alt="Loading..."
+						/>
+					) : (
+						<WriteCodeDashboard
+							code={code}
+							setCode={setCode}
+							handleClick={handleClick}
+						/>
+					)
+				}
 
 			</main>
-
 			<Footer />
-
 		</div>
 	)
 }
