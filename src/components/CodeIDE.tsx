@@ -1,4 +1,3 @@
-import React from 'react'
 import AceEditor from 'react-ace'
 
 import 'ace-builds/src-noconflict/mode-javascript'
@@ -30,5 +29,5 @@ export default function CodeIDE({ code, setCode }: CodeIDEProps) {
                 enableSnippets: false,
               }}
         />
-    );
+    )
 }

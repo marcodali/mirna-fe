@@ -1,13 +1,17 @@
 'use client'
 
 import { useRef, useEffect, useState } from "react"
+import AceEditor from 'react-ace'
+
+import 'ace-builds/src-noconflict/mode-mysql'
+import 'ace-builds/src-noconflict/theme-terminal'
 
 type TableEventsProps = {
     url: string
 }
 
 export default function TableEvents({ url }: TableEventsProps) {
-    const [tablaData, setTablaData] = useState<string[]>([])
+    const [outputTextMessages, setMessage] = useState<string>('')
 
     // Se asigna el nuevo WebSocket a la referencia.
     const webSocketRef = useRef<WebSocket | null>(null)
@@ -24,9 +28,7 @@ export default function TableEvents({ url }: TableEventsProps) {
 
             webSocketRef.current.onmessage = (event: MessageEvent) => {
                 console.log('Message from server', event.data)
-                setTablaData(
-                    (oldData) => [...oldData, event.data]
-                )
+                setMessage((prevMessage) => `At ${new Date().toLocaleTimeString()} ➡️ ${event.data}\n${prevMessage}`)
             }
 
             webSocketRef.current.onerror = (event: Event) => {
@@ -47,21 +49,16 @@ export default function TableEvents({ url }: TableEventsProps) {
     }, [url]) // Se ejecuta cada que la url es actualizada.
 
     return (
-        <div className="w-full self-start flex-shrink-0 mt-10">
-            <table className="min-h-[60vh] w-full">
-                <thead>
-                    <tr>
-                        <th className="text-left">Server Log Messages</th>
-                    </tr>
-                </thead>
-                <tbody className="align-top">
-                    {tablaData.map((message, index) => (
-                        <tr key={index}>
-                            <td className="text-left align-top">{message}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+        <AceEditor
+            mode="mysql"
+            theme="terminal"
+            name="MAGIC_NUMBER_11"
+            fontSize={14}
+            showGutter={true}
+            width="650px"
+            height="500px"
+            value={outputTextMessages}
+            readOnly={true}
+        />
     )
 }

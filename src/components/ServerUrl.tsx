@@ -17,37 +17,39 @@ export default function ServerUrl({ url }: ServerUrlProps) {
             await navigator.clipboard.writeText(urlToCopy)
             console.log('URL copied to clipboard')
             // Animación del botón
-            setButtonClicked(true);
+            setButtonClicked(true)
             setTimeout(() => {
                 setButtonClicked(false)
             }, 100)
         } catch (err) {
             console.error('Failed to copy: ', err)
         }
-    };
+    }
 
-    const buttonClassNames = `h-8 w-8 flex items-center justify-center text-gray-600 bg-gray-200 hover:bg-gray-300 focus:outline-none 
-    ${buttonClicked ? 'ring-2 ring-indigo-300' : ''}`;
+    const buttonClassNames = `h-10 w-10 text-gray-600 bg-gray-200 hover:bg-gray-300 focus:outline-none 
+    ${buttonClicked ? 'ring-2 ring-indigo-300' : ''}`
 
     return (
-        <form className="flex items-center space-x-2 w-full max-w-lg mx-auto">
-            <label htmlFor="urlInput" className="text-sm font-medium text-gray-700">WebSocketServer&nbsp;URI&nbsp;&rarr;</label>
-            <input
-                type="text"
-                id="urlInput"
-                name="urlInput"
-                defaultValue={url}
-                className="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 shadow-sm text-sm h-8 w-3/4"
-                style={{ maxWidth: '400px' }}
-            />
-            <button
-                type="button"
-                onClick={copyToClipboard}
-                className={buttonClassNames}
-                title="Copy to Clipboard"
-            >
-                <FontAwesomeIcon icon={faCopy} size="sm" />
-            </button>
-        </form>
+        <div className="w-full flex justify-center"> {/* Envuelve el formulario en un div para centrarlo */}
+            <form className="flex items-center space-x-2">
+                <label htmlFor="urlInput" className="text-sm font-medium text-gray-700">WebSocketServer&nbsp;URI&nbsp;&rarr;</label>
+                <input
+                    type="text"
+                    id="urlInput"
+                    name="urlInput"
+                    defaultValue={url}
+                    className="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 rounded-md shadow-sm text-sm h-8 text-center"
+                    style={{ width: '400px' }}
+                />
+                <button
+                    type="button"
+                    onClick={copyToClipboard}
+                    className={buttonClassNames}
+                    title="Copy to Clipboard"
+                >
+                    <FontAwesomeIcon icon={faCopy} size="lg" />
+                </button>
+            </form>
+        </div>
     )
 }

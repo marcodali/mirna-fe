@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { WriteCodeDashboard, Header, Footer, StickyLabel } from '@/components'
-import { REAL_API, RANDOM_USER_API, CODE_SAMPLE } from '@/utils/constants'
+import { CREATE_SOCKET_API, RANDOM_USER_API, CODE_SAMPLE } from '@/utils/constants'
 
 export default function Home() {
 	const router = useRouter()
@@ -20,7 +20,7 @@ export default function Home() {
 			project,
 			code,
 		})
-		const response = await fetch(REAL_API, {
+		const response = await fetch(CREATE_SOCKET_API, {
 			method: 'POST',
 			body,
 			headers: {

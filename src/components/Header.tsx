@@ -1,4 +1,3 @@
-import React from "react"
 import DocumentationExample from "./DocumentationExample"
 
 type HeaderProps = {

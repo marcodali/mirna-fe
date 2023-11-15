@@ -1,7 +1,13 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { DeployedServerDashboard, Header, Footer, StickyLabel } from '@/components'
+import {
+    DeployedServerDashboard,
+    Header,
+    Footer,
+    StickyLabel,
+    ServerUrl,
+} from '@/components'
 import { SAMPLE_WSS } from '@/utils/constants'
 import { useEffect, useState } from 'react'
 
@@ -21,12 +27,11 @@ export default function Dashboard() {
     
     return (
         <div className="min-h-[1vh] p-[0.1rem]">
-			<main className="p-10 pb-5">
-
-                <StickyLabel />
+            <StickyLabel />
+            <main className="p-10">
                 <Header showSampleProject={false} />
-                {url ? <DeployedServerDashboard url={url} /> : null}
-
+                <ServerUrl url={url} />
+                <DeployedServerDashboard url={url} username={username} project={project} />
             </main>
             <Footer />
         </div>

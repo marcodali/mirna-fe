@@ -1,5 +1,6 @@
 
-export const REAL_API = 'https://api.mirna.cloud/sockets'
+export const CREATE_SOCKET_API = 'https://api.mirna.cloud/sockets'
+export const GET_CODE_API = 'https://api.mirna.cloud/sockets/1?username=__USERNAME__&project=__PROJECT__'
 export const SAMPLE_WSS = 'wss://api.mirna.cloud/__USERNAME__/__PROJECT__'
 export const RANDOM_USER_API = 'https://randomuser.me/api/?inc=login&noinfo'
 export const DURAZNO_WEBSITE = 'https://durazno.io'
