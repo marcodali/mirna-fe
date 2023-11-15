@@ -30,8 +30,8 @@ export default function Dashboard() {
             <StickyLabel />
             <main className="p-10">
                 <Header showSampleProject={false} />
-                <ServerUrl url={url} />
-                <DeployedServerDashboard url={url} username={username} project={project} />
+                {url ? <ServerUrl url={url} /> : null}
+                {url && username && project && <DeployedServerDashboard url={url} username={username} project={project} />}
             </main>
             <Footer />
         </div>

@@ -28,11 +28,11 @@ export default function DeployedServerDashboard({ url, username, project }: Depl
         <div className="flex flex-row justify-between space-x-4 mt-10">
             <div className="flex-1">
                 <h3 className="text-xl">Source Code</h3>
-                <CodeReadOnlyIDE code={code} />
+                {code ? <CodeReadOnlyIDE code={code} /> : null}
             </div>
             <div className="flex-1">
                 <h3 className="text-xl">Message Logs</h3>
-                <TableEvents url={url + '/events'} />
+                {url ? <TableEvents url={url + '/events'} /> : null}
             </div>
         </div>
     )
