@@ -29,7 +29,7 @@ export default function Home() {
 		})
 		const data = await response.json()
 		const [, , , u, p] = data.uri.split('/')
-		router.push(`/dashboard?username=${u}&project=${p}`)  // Navigate to the new page
+		router.push(`/dashboard.html?username=${u}&project=${p}`)  // Navigate to the new page
 	}
 
 	useEffect(() => {
