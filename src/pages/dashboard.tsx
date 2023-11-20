@@ -8,7 +8,7 @@ import {
     StickyLabel,
     ServerUrl,
 } from '@/components'
-import { SAMPLE_WSS } from '@/utils/constants'
+import { WSS_PROJECT_URI } from '@/utils/constants'
 import { useEffect, useState } from 'react'
 
 import '../app/globals.css'
@@ -21,7 +21,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         if (username && project) {
-            setUrl(SAMPLE_WSS.replace('__USERNAME__', username).replace('__PROJECT__', project))
+            setUrl(WSS_PROJECT_URI.replace('__USERNAME__', username).replace('__PROJECT__', project))
         }
     }, [username, project])
     

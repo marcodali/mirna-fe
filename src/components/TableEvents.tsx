@@ -18,7 +18,7 @@ export default function TableEvents({ url }: TableEventsProps) {
 
     useEffect(() => {
         // Se asigna el nuevo WebSocket a la referencia.
-        if (!url.startsWith('wss')) return
+        if (!url.startsWith('ws')) return
         webSocketRef.current = new WebSocket(url)
 
         // Se asegura de que el WebSocket se ha creado antes de añadir event listeners.
