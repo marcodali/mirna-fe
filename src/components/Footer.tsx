@@ -10,7 +10,7 @@ export default function Footer() {
                     Powered by
                     <Image width={20} height={20} src="/durazno.svg" alt={DURAZNO_NAME} className="ml-2" />
                 </a>
-                <Link href="/privacy">
+                <Link href="/privacy.html">
                     Privacy Policy
                 </Link>
             </div>
