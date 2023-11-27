@@ -23,20 +23,36 @@ export default function Instructions() {
                             <li>&rarr; Follow the example projects</li>
                         </ul>
                     </li>
-                    <li>Do not use require()
+                    <li>Node.JS system version installed is
                         <ul className="pl-5 mt-2">
-                            <li>&rarr; Use ES6 syntax (import from)</li>
+                            <li>&rarr; v18.17.1</li>
                         </ul>
                     </li>
-                    <li>npm packages that you can use
+                    <li>Do not use require() to import built-in modules
                         <ul className="pl-5 mt-2">
-                            <li>&rarr; axios, moment, lodash</li>
-                            <li>&rarr; jsonwebtoken, uuid</li>
+                            <li>&rarr; Make use of the Dynamic import() Function</li>
+                            <li>&rarr; in combination with REPL Top-Level Await</li>
+                            <li>&rarr; like this</li>
+                            <li>&rarr; const fs = await import('fs/promises')</li>
+                            <li>&rarr; const data = await fs.readFile('/etc/passwd', 'utf8')</li>
+                        </ul>
+                    </li>
+                    <li>These npm packages are available without importing them
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; axios, moment, lodash, jsonwebtoken, uuid</li>
+                        </ul>
+                    </li>
+                    <li>Coming soon...
+                        <ul className="pl-5 mt-2">
+                            <li>&rarr; Mongoose</li>
+                            <li>&rarr; Redis</li>
+                            <li>&rarr; Winston</li>
+                            <li>&rarr; Passport</li>
                         </ul>
                     </li>
                     <li>No Typescript
                         <ul className="pl-5 mt-2">
-                            <li>&rarr; We prefer vanilla JavaScript</li>
+                            <li>&rarr; We prefer vanilla ES6 syntax JavaScript</li>
                         </ul>
                     </li>
                     <li>Don&apos;t worry about CORS
@@ -51,13 +67,14 @@ export default function Instructions() {
                     </li>
                     <li>If your code does not compile
                         <ul className="pl-5 mt-2">
-                        <li>&rarr; The WSS url will be deactivated</li>
+                            <li>&rarr; The generated WSS url will be deactivated</li>
                         </ul>
                     </li>
                     <li>If your code rises an exception
                         <ul className="pl-5 mt-2">
-                            <li>&rarr; The WSS url will be deactivated</li>
-                        </ul></li>
+                            <li>&rarr; The generated WSS url will be deactivated</li>
+                        </ul>
+                    </li>
                 </ul>
             )}
         </div>
