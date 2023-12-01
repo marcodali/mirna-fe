@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -19,7 +20,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         strategy="afterInteractive"
         async
       />
-      <body className="p-0 m-0">{children}</body>
+      <body className="p-0 m-0">
+        {children} <GoogleTagManager gtmId="G-VZ626SLDTR" />
+      </body>
     </html>
   );
 }
