@@ -32,17 +32,15 @@ export default function Dashboard() {
 
   useEffect(() => {
     // Set up the Tally configuration
-    if ('TallyConfig' in window) {
-      window.TallyConfig = {
-        formId: "mKVWqK",
-        popup: {
-          emoji: {
-            text: "👋",
-            animation: "wave",
-          },
+    window.TallyConfig = {
+      formId: "mKVWqK",
+      popup: {
+        emoji: {
+          text: "👋",
+          animation: "wave",
         },
-      };
-    }
+      },
+    };
 
     // Dynamically load the Tally script
     const script = document.createElement("script");
