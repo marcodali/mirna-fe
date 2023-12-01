@@ -1,13 +1,14 @@
 // prod
-// export const CREATE_SOCKET_API = 'https://api.mirna.cloud/sockets'
-// export const GET_CODE_API = 'https://api.mirna.cloud/sockets/1?username=__USERNAME__&project=__PROJECT__'
-// export const WSS_PROJECT_URI = 'wss://api.mirna.cloud/__USERNAME__/__PROJECT__'
+export const CREATE_SOCKET_API = "https://api.mirna.cloud/sockets";
+export const GET_CODE_API =
+  "https://api.mirna.cloud/sockets/1?username=__USERNAME__&project=__PROJECT__";
+export const WSS_PROJECT_URI = "wss://api.mirna.cloud/__USERNAME__/__PROJECT__";
 
 // local
-export const CREATE_SOCKET_API = "http://localhost:4000/sockets";
-export const GET_CODE_API =
-  "http://localhost:4000/sockets/1?username=__USERNAME__&project=__PROJECT__";
-export const WSS_PROJECT_URI = "ws://localhost:4000/__USERNAME__/__PROJECT__";
+// export const CREATE_SOCKET_API = "http://localhost:4000/sockets";
+// export const GET_CODE_API =
+//   "http://localhost:4000/sockets/1?username=__USERNAME__&project=__PROJECT__";
+// export const WSS_PROJECT_URI = "ws://localhost:4000/__USERNAME__/__PROJECT__";
 
 // general
 const sampleFiles = [
