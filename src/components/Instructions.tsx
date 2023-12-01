@@ -33,8 +33,8 @@ export default function Instructions() {
                             <li>&rarr; Make use of the Dynamic import() Function</li>
                             <li>&rarr; in combination with REPL Top-Level Await</li>
                             <li>&rarr; like this</li>
-                            <li>&rarr; const fs = await import('fs/promises')</li>
-                            <li>&rarr; const data = await fs.readFile('/etc/passwd', 'utf8')</li>
+                            <li>&rarr; const fs = await import(&apos;fs/promises&apos;)</li>
+                            <li>&rarr; const data = await fs.readFile(&apos;/etc/passwd&apos;, &apos;utf8&apos;)</li>
                         </ul>
                     </li>
                     <li>These npm packages are available without importing them
