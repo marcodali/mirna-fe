@@ -3,7 +3,7 @@ import React from "react";
 function WhatsappWidget() {
   return (
     <a
-      href="https://wa.me/5951150804"
+      href="https://wa.me/+5215951150804"
       className="w-auto flex items-center  text-white dark:text-black text-base rounded-full px-6 font-medium"
       target="_blank"
       rel="noopener noreferrer"
